@@ -11,7 +11,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
 /**
- *
+ * Configuración de Mockito para hacer los tests
+ * 
  * @author R79061236
  */
 @Configuration

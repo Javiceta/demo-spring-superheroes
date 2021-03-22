@@ -8,8 +8,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 @SpringBootTest
 class DemoApplicationTests {
@@ -24,6 +22,9 @@ class DemoApplicationTests {
     void contextLoads() {
     }
     
+    /**
+     * Test unitario que comprueba el funcionamiento de la búsqueda de un superhéroe por ID
+     */
     @Test
     public void whenSuperheroeIdIsProvided_thenRetrievedSuperheroeIsCorrect() {
         Long testId = 1L;
@@ -31,10 +32,11 @@ class DemoApplicationTests {
         
         Mockito
                 .when(serviceMock.obtenerSuperheroePorId(testId))
-                .thenReturn(new ResponseEntity(mockHeroe, HttpStatus.OK));
+                .thenReturn(mockHeroe);
         
-        ResponseEntity<Superheroe> response = superheroeService.obtenerSuperheroePorId(testId);
-        Assert.assertEquals(mockHeroe.getNombre(), response.getBody().getNombre());
+        Superheroe response = superheroeService.obtenerSuperheroePorId(testId);
+        Assert.assertEquals(mockHeroe.getNombre(), response.getNombre());
+        Assert.assertEquals(mockHeroe.getFuerza(), response.getFuerza());
     }
 
 }

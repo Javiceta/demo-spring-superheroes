@@ -13,7 +13,9 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 /**
- *
+ * Implementación del repositorio personalizado. Implementa un método de búsqueda
+ * de subcadenas en el nombre de los superhéroes
+ * 
  * @author R79061236
  */
 public class SuperheroeRepositoryImpl implements SuperheroeRepositoryCustom{
@@ -21,6 +23,13 @@ public class SuperheroeRepositoryImpl implements SuperheroeRepositoryCustom{
     @PersistenceContext
     EntityManager entityManager;
     
+    /**
+     * Realiza una consulta en HQL para buscar una subcadena en el nombre de los
+     * superhéroes. Es insensible a las mayúsculas.
+     * 
+     * @param cadena
+     * @return listado de superhéroes
+     */
     @Override
     public List<Superheroe> findByCadenaInNombre(String cadena) {
         Query query = entityManager.createNativeQuery(

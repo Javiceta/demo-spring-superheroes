@@ -5,6 +5,7 @@
  */
 package com.example.demo.model;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,13 +14,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- *
+ * Entidad que representa un superhéroe.
+ * 
  * @author R79061236
  */
 
 @Entity
 @Table(name = "superheroe")
-public class Superheroe {
+public class Superheroe implements Serializable {
     
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)

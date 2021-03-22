@@ -6,12 +6,13 @@
 package com.example.demo.repository;
 
 import com.example.demo.model.Superheroe;
-import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- *
+ * Repositorio que extiende JpaRepository para realizar las operaciones básicas
+ * de CRUD sobre la base de datos
+ * 
  * @author R79061236
  */
 

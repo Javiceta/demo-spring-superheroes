@@ -9,7 +9,9 @@ import com.example.demo.model.Superheroe;
 import java.util.List;
 
 /**
- *
+ * Repositorio personalizado para incluir el método de buscar un listado de
+ * superhéroes por una subcadena contenida en su nombre
+ * 
  * @author R79061236
  */
 public interface SuperheroeRepositoryCustom {
