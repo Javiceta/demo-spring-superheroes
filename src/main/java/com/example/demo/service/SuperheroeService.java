@@ -42,6 +42,7 @@ public class SuperheroeService {
      * @return listado de superhéroes
      */
     @Transactional(readOnly = true)
+    @Cacheable(value = "superheroesTodosCache")
     public List<Superheroe> obtenerTodosSuperheroes() {
         log.info("Obteniendo todos los superhéroes");
         return superheroeRepository.findAll();
@@ -56,6 +57,7 @@ public class SuperheroeService {
      * @return superhéroe
      */
     @Transactional(readOnly = true)
+    @Cacheable(value = "superheroePorIdCache")
     public Superheroe obtenerSuperheroePorId(Long id) {
         log.info("Obteniendo superhéroe por ID (" + id + ")");
         Superheroe heroe = superheroeRepository.findById(id)
@@ -73,6 +75,7 @@ public class SuperheroeService {
      * @return listado de superhéroes
      */
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    @Cacheable(value = "superheroesPorNombre")
     public List<Superheroe> obtenerSuperheroesPorCadenaEnNombre(String cadena) {
         log.info("Obteniendo superhéroes por la subcadena en el nombre ('" + cadena + "')");
         List<Superheroe> superheroes = superheroeRepository.findByCadenaInNombre(cadena);
