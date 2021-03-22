@@ -35,8 +35,7 @@ class DemoApplicationTests {
                 .thenReturn(mockHeroe);
         
         Superheroe response = superheroeService.obtenerSuperheroePorId(testId);
-        Assert.assertEquals(mockHeroe.getNombre(), response.getNombre());
-        Assert.assertEquals(mockHeroe.getFuerza(), response.getFuerza());
+        Assert.assertEquals(mockHeroe, response);
     }
 
 }
